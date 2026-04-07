@@ -1,0 +1,49 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vllm-expert-capture"
+version = "0.1.0"
+description = "Token-level expert routing capture for Nemotron-Cascade-2-30B-A3B during vLLM inference"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.12"
+authors = [
+    {name = "Aman Priyanshu", email = "amanpriyanshusms2001@gmail.com"},
+    {name = "Supriti Vijay"},
+]
+keywords = [
+    "moe",
+    "mixture-of-experts",
+    "expert-fingerprinting",
+    "vllm",
+    "nemotron",
+    "nemotron-cascade",
+    "expert-routing",
+    "activation-capture",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "vllm==0.19.0",
+    "transformers==4.57.6",
+    "torch==2.10.0",
+    "numpy==2.2.6",
+    "pyarrow>=19.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/AmanPriyanshu/NemotronCascade2-MoE-ExpertFingerprinting-vLLM-Capture"
+Repository = "https://github.com/AmanPriyanshu/NemotronCascade2-MoE-ExpertFingerprinting-vLLM-Capture"
+
+[project.scripts]
+vllm-expert-capture = "vllm_expert_capture.capture:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
